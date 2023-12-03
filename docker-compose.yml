@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  angular-web:
+    image: angular-web
+    build:
+      context: ./playground-ch01/my-app
+      dockerfile: Dockerfile
+    volumes:
+      - ./playground-ch01/my-app:/app/angular-web:delegated
+    command: npm start
+    ports:
+      - "8000:8000"
