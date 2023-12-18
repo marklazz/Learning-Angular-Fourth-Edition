@@ -1,0 +1,27 @@
+FROM node:19-bullseye
+
+# Create app directory
+ENV APP_NAME angular-web
+ENV APP_HOME /app/$APP_NAME
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
+
+ADD . $APP_HOME
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+# COPY . . 
+
+RUN npm install
+RUN npm install -g @angular/cli@15
+
+# If you are building your code for production
+# RUN npm ci --omit=dev
+
+# Bundle app source
+# COPY . .
+
+EXPOSE 8000
+
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "8000"]
