@@ -16,6 +16,8 @@ export class ProductListComponent implements AfterViewInit {
 
   // selectedProduct = 'Microphone';
   selectedProduct = '';
+  products = ['Webcam', 'Microphone', 'Wireless keyboard'];
+
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
 
   onBuy(name: string) {
