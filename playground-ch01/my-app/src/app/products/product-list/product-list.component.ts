@@ -23,4 +23,8 @@ export class ProductListComponent implements AfterViewInit {
   onBuy(name: string) {
     window.alert(`You just bought ${name}!`);
   }
+
+  trackByProducts(index: number, name: string): string {
+    return name;
+  }
 }
