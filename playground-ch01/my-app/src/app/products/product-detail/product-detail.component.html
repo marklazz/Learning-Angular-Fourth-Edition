@@ -1,6 +1,6 @@
 <div *ngIf="product">
     <h2>Product Details</h2>
-    <h3>{{product.name}}</h3>
+    <h3>{{product.name | uppercase}}</h3>
     <div [ngSwitch]="product.name">
         <p *ngSwitchCase="'Webcam'">
             Product is used for video
