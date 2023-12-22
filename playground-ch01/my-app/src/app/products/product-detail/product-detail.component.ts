@@ -1,4 +1,5 @@
-import { Component, Input, Output, OnInit, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, ViewEncapsulation, SimpleChanges } from '@angular/core';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,6 +9,7 @@ import { Component, Input, Output, OnInit, EventEmitter, ViewEncapsulation } fro
 export class ProductDetailComponent implements OnInit {
   @Input() name = '';
   @Output() bought = new EventEmitter<string>();
+  @Input() product: Product | undefined;
 
   constructor() {
     console.log(`Name is ${this.name} in the constructor`);
@@ -15,6 +17,15 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(`Name is ${this.name} in the ngOnInit`);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const product = changes['product'];
+    if (!product.isFirstChange()) {
+      const oldValue = product.previousValue.name;
+      const newValue = product.currentValue.name;
+      console.log('Product changed from ${oldValue} to ${newValue}');
+    }
   }
 
   buy() {
