@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { FilterPipe } from './filter.pipe';
 import { CopyrightDirective } from './copyright.directive';
+import { NumericDirective } from './numeric.directive';
 // import { ProductListComponent } from './products/product-list/product-list.component';
 // import { ProductDetailComponent } from './product-detail/product-detail.component';
 
@@ -12,6 +13,7 @@ import { CopyrightDirective } from './copyright.directive';
   declarations: [
     AppComponent,
     CopyrightDirective,
+    NumericDirective,
     // ProductDetailComponent
   ],
   imports: [
